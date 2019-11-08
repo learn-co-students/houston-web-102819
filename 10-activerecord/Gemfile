@@ -1,0 +1,11 @@
+source "https://rubygems.org"
+
+# My fancy comment explaining active record
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'rake'
+gem 'require_all'
+gem 'sqlite3'
+gem 'pry'
+
+gem "colorize", "~> 0.8.1"
