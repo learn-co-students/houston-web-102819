@@ -1,0 +1,16 @@
+require_relative './config/environment'
+require 'sinatra/activerecord/rake'
+
+desc "Start our app console" 
+task :console do
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+  binding.pry
+end
+
+desc "This says hi"
+task :greet do 
+  puts "Hello! How are you?"
+end
+
+
