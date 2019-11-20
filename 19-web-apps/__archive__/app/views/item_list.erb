@@ -1,0 +1,25 @@
+<% @items.each do | item | %>
+    <div>
+        <strong><%= item.name %></strong>
+        <p><%= item.category %></p>
+    </div>
+<% end %>
+<form method="post" action="/add-item">
+    <div>
+        <label>Name</label>
+        <input name="name" type="text" />
+    </div>
+    <div>
+        <label>Category</label>
+        <input name="category" type="text" />
+    </div>
+    <div>
+        <label>Quantity</label>
+        <input name="quantity" type="text" />
+    </div>
+    <%# <div>
+        <label>Expires</label>
+        <input name="date_expires" type="text" />
+    </div> %>
+    <input type="submit" >
+</form>

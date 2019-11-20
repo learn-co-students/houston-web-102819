@@ -1,0 +1,27 @@
+ <h1>Create Ticket</h1>
+ <form method="POST" action="/admin/create-ticket">
+    <div>
+        <label>Location</label>
+        <input type="text" name="location">
+    </div>
+     <div>
+        <label>Seat Number</label>
+        <input type="number" name="seat_number">
+    </div>
+    <div>
+        <label>Cost</label>
+        <input type="number" name="cost">
+    </div>
+    <div>
+        <label>Airline</label>
+        <input list="airlines" name="airline_id"  />
+        <datalist id="airlines">
+            <% Airline.all.each do | airline | %>
+                <option value="<%= airline.id %>">
+                    <%= airline.name%>
+                </option>
+            <% end %>
+        </datalist>
+    </div>
+    <input type="submit">
+ </form>

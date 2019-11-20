@@ -1,0 +1,14 @@
+<h1>Purchase Ticket</h1>
+<form method="POST" action=<%= "/checkout/#{@user_id}" %> >
+    <% @tickets.each do | ticket | %>
+        <div>
+            <input type="checkbox" name="ticket_ids[]" value="<%= ticket.id %>"/>
+            <p>Airline: <strong><%= ticket.airline.name %></strong></p>
+            <p>Location: <strong><%= ticket.location %></strong></p>
+            <p>Price: <strong>$<%=ticket.cost %></strong></p>
+            <p>Seat Number: <strong><%=ticket.seat_number %></strong></p>
+        </div>
+        <hr />
+    <% end %>
+    <input type="submit">
+</form>

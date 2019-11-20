@@ -1,0 +1,4 @@
+<h1>My Tickets</h1>
+<% @user.tickets.each do | ticket | %>
+    <%= "#{ticket.location} ($#{ticket.cost})" %>
+<% end %>
