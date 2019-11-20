@@ -1,4 +1,4 @@
-# Datatypes and Programmatic Thinking
+# Datastructures
 
 ### Learning Goals
 - Describe structures with hashes and arrays
