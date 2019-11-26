@@ -1,0 +1,23 @@
+<h1><%= @pet.name %></h1>
+<h4><%= @pet.noise %> </h4>
+<h4><%= @pet.owner.name %></h4>
+<form method="post" action="<%= pet_path(@pet) %>">
+    <input type="hidden" name="_method" value="patch">
+    <div>
+        <p>Pet Name</p>
+        <input name="pet[name]" type="text"  value="<%= @pet.name %>" />
+    </div>
+    <div>
+        <p>Pet Noise</p>
+        <input name="pet[noise]" type="text" value="<%= @pet.noise  %>" />
+    </div>
+    <div>
+        <p>Owner ID</p>
+        <select name="pet[owner_id]">
+            <% Owner.all.each do | owner | %>
+                <option value="<%= owner.id%>"><%= owner.name %></option>
+            <% end %>
+        </select>
+    </div>
+    <input type="submit" />
+</form>
