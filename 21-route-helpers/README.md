@@ -1,4 +1,4 @@
-# Abstracting Routes
+# Rails Routes
 
 ### Learning Goals
 
