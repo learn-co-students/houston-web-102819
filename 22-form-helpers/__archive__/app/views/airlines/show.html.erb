@@ -1,0 +1,8 @@
+<h1><%= @airline.name %></h1>
+<%= link_to("Edit", "/airlines/#{@airline.id}/edit")%>
+<h3>Passengers:</h3>
+<ul>
+<% @airline.travelers.each do | passenger | %>
+    <li><a href="/travelers/<%= passenger.id %>"><%= passenger.name %></a></li>
+<% end %>
+</ul>

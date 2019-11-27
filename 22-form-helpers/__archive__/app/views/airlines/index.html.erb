@@ -1,0 +1,10 @@
+<h1>Airlines</h1>
+<ul>
+<% @airlines.each do | airline | %>
+    <li>
+        <%=airline.name%>
+        <%= link_to("View Details", airline) %>
+    </li>
+<% end %>
+</ul> 
+<%= link_to("Create Airline", "/airlines/new")%>
