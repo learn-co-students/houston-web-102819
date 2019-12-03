@@ -1,0 +1,46 @@
+<h1>Editing Dog</h1>
+<form method="post" action="<%= pet_path(@pet) %>">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    <div>
+        <p>Pet Name</p>
+        <input name="pet[name]" type="text"  value="<%= @pet.name %>" />
+    </div>
+    <div>
+        <p>Pet Noise</p>
+        <input name="pet[noise]" type="text" value="<%= @pet.noise  %>" />
+    </div>
+    <div>
+        <p>Owner ID</p>
+        <select name="pet[owner_id]">
+            <% Owner.all.each do | owner | %>
+                <option value="<%= owner.id%>"><%= owner.name %></option>
+            <% end %> 
+        </select>
+    </div>
+    <input type="submit" />
+</form>
+
+
+
+
+
+
+
+
+<h1>Editing Dog</h1>
+<%= form_with({ model: @pet }) do | form | %>
+    <div>
+        <label>Name:</label>
+        <%= form.text_field(:name) %>
+    </div>
+    <div>
+        <label>Noise: </label>
+        <%= form.text_field(:noise) %>
+    </div>
+    <div>
+        <label>Owner: </label>
+        <%= form.collection_select(:owner_id, @owners, :id, :name) %>
+    </div>
+    <%= form.submit("Submit") %>
+<% end %>
