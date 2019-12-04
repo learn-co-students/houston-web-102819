@@ -1,0 +1,11 @@
+<h1>Receipts List</h1>
+<ul>
+<% @receipts.each do | receipt | %>
+    <li>
+        <a href="/receipts/<%= receipt.id%>">
+            <%= receipt.customer.name %> at <%= receipt.restaurant.name %>  ($<%= receipt.amount %>)
+        </a>
+    </li>
+<% end %>
+</ul>
+<a href="/receipts/new">Create New Receipt</a>

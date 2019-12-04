@@ -1,0 +1,23 @@
+<h1>Update Restaurant</h1>
+<form method="POST" action="/receipts/<%= @receipt.id %>">
+    <input type="hidden" name="_method" value="PATCH" />
+    <div>
+        <label>Amount</label>
+        <input value="<%= @receipt.amount %>" type="text" name="amount">
+    </div>
+    <div>
+        <label>Restaurant</label>
+        <select name="restaurant_id" >
+            <% Restaurant.all.each do | restaurant | %>
+                <option 
+                    <%= restaurant.id == @receipt.restaurant_id ? 'selected' : '' %>
+                    value="<%= restaurant.id %>"
+                >
+                    <%= restaurant.name %>
+                </option>
+            <% end %>
+        </select>
+    </div>
+    <input type="submit">
+    <a href="/receipts/<%= @receipt.id %>">Cancel</a>
+</form>

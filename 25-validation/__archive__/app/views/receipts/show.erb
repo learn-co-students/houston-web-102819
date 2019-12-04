@@ -1,0 +1,10 @@
+<a href="/receipts">See all Receipts</a>
+<h1>Receipt Details</h1>
+<p><%= @receipt.customer.name %> purchased $<%= @receipt.amount %> of <%= @receipt.restaurant.name %></p>
+<form action="/receipts/<%= @receipt.id%>/edit">
+    <input type="submit" value="Edit"/>
+</form>
+<form action="/receipts/<%= @receipt.id%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE" />
+    <input type="submit" value="Delete"/>
+</form>
