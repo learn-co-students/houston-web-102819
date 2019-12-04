@@ -1,0 +1,27 @@
+<h1>Creating Dog</h1>
+<form method="post" action="<%= pets_path %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+    <div>
+        <p>Pet Name</p>
+        <input name="pet[name]" type="text" />
+        <% if(@errors["name"] != nil) %>
+            <%= @errors["name"].join(" ")  %> 
+        <% end %>
+    </div>
+    <div>
+        <p>Pet Noise</p>
+        <input name="pet[noise]" type="text" />
+        <% if(@errors["noise"] != nil) %>
+            <%= @errors["noise"].join(" ")  %> 
+        <% end %>
+    </div>
+    <div>
+        <p>Owner ID</p>
+        <select name="pet[owner_id]">
+            <% Owner.all.each do | owner | %>
+                <option value="<%= owner.id%>"><%= owner.name %></option>
+            <% end %> 
+        </select>
+    </div>
+    <input type="submit" />
+</form>

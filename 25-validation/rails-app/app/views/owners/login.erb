@@ -1,0 +1,7 @@
+<%= form_with({ url: '/owners/login', method: 'post'}) do | form | %>
+
+    <%= form.text_field(:name) %>
+    <%= form.password_field(:password) %>
+    <%= form.submit %>
+
+<% end %>
