@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <h1>My Awesome Web Game</h1>
+        <h4 class="welcome-message"></h4>
+        <h6 class="welcome-message"></h6>
+        <script>
+            let myH4Tag = document.querySelectorAll('.welcome-message')
+
+            let imgTag = document.createElement('img')
+            imgTag.src=  "http://bit.ly/green-character-walk-down"
+            document.body.append(imgTag)
+
+            let firstName = "Vivian"
+            let lastName = "T"
+            let fullName = `${firstName} ${lastName}`
+            myH4Tag.forEach( function( element ){
+                element.append(`Hi, ${fullName}`)    
+            })         
+        </script>
+    </body>
+</html>
