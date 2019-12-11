@@ -1,0 +1,24 @@
+<h1>Car Form</h1>
+<form method="post" action="/cars">
+    <div>
+        <label>Make</label>
+        <input name="make" type="text">
+    </div>
+     <div>
+        <label>Model</label>
+        <input name="model" type="text">
+    </div>
+     <div>
+        <label>Year</label>
+        <input name="year" type="text">
+    </div>
+     <div>
+        <label>User</label>
+        <select name="user_id">
+            <% @users.each do | user | %>
+                <option value="<%= user.id %>"><%= user.name %></option>
+            <% end %>
+        </select>
+    </div>
+    <input type="submit">
+</form>

@@ -1,0 +1,25 @@
+<%= form_with({ model: @car }) do | form | %>
+    <div>
+        <label>Brand</label>
+        <%= form.text_field(:brand) %>
+    </div>
+    <div>
+        <label>Model</label>
+        <%= form.text_field(:model) %>
+    </div>
+    <div>
+        <label>Price</label>
+        <%= form.range_field(:price) %>
+    </div>
+    <div>
+        <label>Color</label>
+        <%= form.color_field(:color) %>
+    </div>
+    <div>
+        <label>Owner</label>
+        <%= form.collection_select(:owner_id, @owners, :id, :name) %>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

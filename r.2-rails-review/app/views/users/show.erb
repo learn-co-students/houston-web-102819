@@ -1,0 +1,9 @@
+<h1><%= @user.name %></h1>
+<% @user.cars.each do | car |  %>
+    <p><%= car.name %></p>
+    <form method="post" action="/cars/<%= car.id %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete">
+    </form>
+<% end %>
+

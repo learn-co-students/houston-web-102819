@@ -1,0 +1,5 @@
+<% @owners.each do | owner | %>
+    <div>
+        <%= link_to( owner.name, owner_path(owner.id) ) %>
+    </div>
+<% end %>

@@ -1,0 +1,22 @@
+<%= @owner.name %>
+
+<% @owner.cars.each do | car | %>
+    <div>
+        <p>
+            <%= car.name %>
+        </p>
+        <p>
+            <%= car.price %>
+        </p>
+        <%= form_with({ url: "/cars/#{car.id}", method: "delete"}) do | form | %>
+            <%= form.submit("Delete") %>
+        <% end %>
+        <!--
+        <form method="post" action="/cars/<%= car.id%>">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete">
+        </form>
+        --> 
+    </div>
+<% end %>
