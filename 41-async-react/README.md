@@ -73,6 +73,5 @@
 ##### Questions
 
 
-
 ### Conclusion 
 * Now we've seen all of the basic tools React provides, tomorrow we'll zoom out and see how we can use these tools to build a full React Application.
