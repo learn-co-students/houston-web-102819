@@ -1,0 +1,18 @@
+{
+  "tasks": [
+    {
+      "id": 2,
+      "content": "Rant about Rise of Skywalker (some more)"
+    },
+    {
+      "id": 3,
+      "content": "Sleep (for 8 hours)"
+    }
+  ],
+  "completedTasks": [
+    {
+      "id": 1,
+      "content": "Eat Dinner"
+    }
+  ]
+}
