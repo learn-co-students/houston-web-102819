@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def get_user
-        user = User.find_by(name: params[:name])
+        user = self.current_user
         render( json: user, include: [ tickets: {
             include: [ :airline ]
         } ] )
@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
     def login
         user = User.find_by(username: params[:username])
+        token = JWT.encode( { id: user.id }, 'YOUR SECRET')
         if(user.authenticate(params[:password]))
-            token = JWT.encode( { id: user.id }, 'YOUR SECRET')
             render( json: { user: user, token: token }, include: [ tickets: {
                 include: [ :airline ]
             } ] )

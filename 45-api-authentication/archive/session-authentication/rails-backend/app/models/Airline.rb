@@ -1,3 +1,0 @@
-class Airline < ApplicationRecord
-
-end

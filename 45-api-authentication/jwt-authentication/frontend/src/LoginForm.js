@@ -24,6 +24,7 @@ export class LoginForm extends Component {
                 if(login.failed){
                     this.setState({ errorMessage: login.message })
                 } else {
+                    localStorage.setItem('token', login.token)
                     this.props.setLoggedInUser(login.user)
                 }
             })

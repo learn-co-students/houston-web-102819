@@ -5,7 +5,12 @@
 2. When handling the `login` request, use `JWT.encode( { id: user.id }, 'YOUR SECRET')` to create a jwt token. Send the token in your response to the frontend
 
 ```ruby
-
+     def login
+        user = User.find_by({ username: params[:username] })
+        if user.authenticate(params[:password])
+            render json: { user: user, token: JWT.encode( { id: user.id }, 'YOUR SECRET') }
+        end
+    end
 ```
 
 3. In the frontend, where you `fetch` to send the login request, wait for the servers response, then set the received JWT token in localStorage. This will save token so that it persists from page load to page load
@@ -81,7 +86,25 @@ class ApplicationController < ActionController::API
 end
 ```
 
-5. Protect against Cross-Site Request Forgery:
+5. In your fetch requests on the front end, provide a `credentials: 'include'` option in the options object. Example:
+```javascript
+fetch('http://localhost:3000/profile', {
+    credentials: 'include'
+})
+    .then( res => res.json())
+    .then( profile => {
+        if(!profile.error){
+            this.setState({
+                loggedInUser: profile,
+                selectedPage: 'myTickets'
+            }) 
+        }
+    })
+```
+
+> Note: credentials: 'include' is its own option and does not go in the headers nor the body of the request
+
+6. Protect against Cross-Site Request Forgery:
 
 ```ruby
 # config/application.rb

@@ -11,15 +11,20 @@ export class App extends Component {
         loggedInUser: null
     }
 
-    componentDidMount(){
+    componentDidMount() {
         fetch('http://localhost:3000/profile', {
-            
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`
+            }
         })
-            .then( res => res.json())
-            .then( profile => {
-                this.setState({
-                    loggedInUser: profile
-                }) 
+            .then(res => res.json())
+            .then(profile => {
+                if (!profile.failed) {
+                    this.setState({
+                        loggedInUser: profile,
+                        selectedPage: 'myTickets'
+                    })
+                }
             })
 
     }
@@ -35,7 +40,7 @@ export class App extends Component {
             loggedInUser: user,
             selectedPage: 'myTickets'
         })
-    } 
+    }
 
     purchaseTicket = (ticket) => {
 
@@ -60,31 +65,31 @@ export class App extends Component {
         })
     }
 
-    render(){
+    render() {
         window.app = this
-        if(this.state.selectedPage === 'login'){
+        if (this.state.selectedPage === 'login') {
             return (
                 <div className="ui container">
                     <LoginPage setLoggedInUser={this.setLoggedInUser} />
                 </div>
             )
         }
-        if(this.state.selectedPage === 'myTickets'){
+        if (this.state.selectedPage === 'myTickets') {
             return (
                 <div className="ui container">
-                    <MyTicketsPage 
-                        loggedInUser={this.state.loggedInUser} 
+                    <MyTicketsPage
+                        loggedInUser={this.state.loggedInUser}
                         selectPage={this.selectPage}
                     />
                 </div>
             )
         }
-        if(this.state.selectedPage === 'purchaseTickets'){
+        if (this.state.selectedPage === 'purchaseTickets') {
             return (
                 <div className="ui container">
-                    <PurchaseTicketPage 
+                    <PurchaseTicketPage
                         purchaseTicket={this.purchaseTicket}
-                         selectPage={this.selectPage}
+                        selectPage={this.selectPage}
                     />
                 </div>
             )

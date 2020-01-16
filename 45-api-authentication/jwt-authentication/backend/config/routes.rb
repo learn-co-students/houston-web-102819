@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post('/login', { to: 'users#login' })
 
   resources(:tickets)
+
+  get('/profile', { to: 'users#get_user'})
   
 
 end
