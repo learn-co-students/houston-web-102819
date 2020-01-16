@@ -13,13 +13,16 @@ export class App extends Component {
 
     componentDidMount(){
         fetch('http://localhost:3000/profile', {
-            
+            credentials: 'include'
         })
             .then( res => res.json())
             .then( profile => {
-                this.setState({
-                    loggedInUser: profile
-                }) 
+                if(!profile.error){
+                    this.setState({
+                        loggedInUser: profile,
+                        selectedPage: 'myTickets'
+                    }) 
+                }
             })
 
     }

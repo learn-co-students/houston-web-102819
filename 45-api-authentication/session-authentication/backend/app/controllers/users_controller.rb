@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def get_user
-        user = User.find_by(name: params[:name])
+        user = self.current_user
         render( json: user, include: [ tickets: {
             include: [ :airline ]
         } ] )
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     def login
         user = User.find_by(username: params[:username])
         if(user.authenticate(params[:password]))
+            session[:user_id] = user.id
             render( json: { user: user }, include: [ tickets: {
                 include: [ :airline ]
             } ] )

@@ -11,6 +11,7 @@ export class LoginForm extends Component {
         e.preventDefault()
         fetch('http://localhost:3000/login', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },

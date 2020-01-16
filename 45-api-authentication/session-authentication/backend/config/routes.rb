@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   resources(:tickets)
   
+  get('/profile', { to: 'users#get_user'})
 
 end
