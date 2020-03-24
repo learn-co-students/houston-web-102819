@@ -6,7 +6,4 @@ ActiveRecord::Base.establish_connection(
   database: "db/development.sqlite"
 )
 
-# Sqlite3.connect(':memory:')
-
-
 require_all 'app'

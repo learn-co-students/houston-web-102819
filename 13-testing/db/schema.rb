@@ -10,15 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_23_150035) do
-
-  create_table "breeds", force: :cascade do |t|
-    t.string "name"
-    t.float "average_height"
-  end
+ActiveRecord::Schema.define(version: 2020_03_20_185317) do
 
   create_table "dogs", force: :cascade do |t|
     t.string "name"
+    t.integer "age"
     t.integer "breed_id"
     t.integer "owner_id"
   end
