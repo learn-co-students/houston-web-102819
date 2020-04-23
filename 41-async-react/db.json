@@ -1,5 +1,4 @@
-{
-    "dragons": [
+[
         {
             "id": 1,
             "name": "Toothless",
@@ -29,4 +28,3 @@
             "atWar": true
         }
     ]
-}
